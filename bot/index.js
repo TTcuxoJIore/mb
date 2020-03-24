@@ -2,7 +2,6 @@ const ytdl = require('ytdl-core');
 const {YTSearcher} = require('ytsearcher');
 const ytpl = require('ytpl');
 const Discord = require('discord.js');
-const PACKAGE = require('./package.json');
 
 exports.start = (client, options) => {
 try {
@@ -431,7 +430,7 @@ try {
     };
 
     client.on("ready", () => {
-      console.log(`------- Music Bot -------\n> Version: ${PACKAGE.version}\n> Extra Logging: ${musicbot.logging}.\n> Node.js Version: ${process.version}\n------- Music Bot -------`);
+      console.log(`------- Music Bot -------\n> Extra Logging: ${musicbot.logging}.\n> Node.js Version: ${process.version}\n------- Music Bot -------`);
       if (musicbot.cooldown.exclude.includes("skip")) console.warn(`[MUSIC] Excluding SKIP CMD from cooldowns can cause issues.`);
       if (musicbot.cooldown.exclude.includes("remove")) console.warn(`[MUSIC] Excluding REMOVE CMD from cooldowns can cause issues.`);
       setTimeout(() => { if (musicbot.musicPresence == true && musicbot.client.guilds.length > 1) console.warn(`[MUSIC] MusicPresence is enabled with more than one server!`); }, 2000);
